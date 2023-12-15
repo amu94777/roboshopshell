@@ -20,5 +20,5 @@ then
     echo -e "$R ERROR:::you are not a root user $N"
     exit 1
 else
-    echo -e "$G you are a root user $N
+    echo -e "$G you are a root user $N"
 fi
