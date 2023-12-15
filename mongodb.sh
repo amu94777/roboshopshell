@@ -26,15 +26,17 @@ fi
     echo -e "$Y ******MANGODB CONFIGURATION STARTS FROM HERE *****$N"
 
     cp mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
-    VALIDATE $? "cpopied mongodb repo"
+    VALIDATE $? "COPIED MONGODB REPO"
 
     dnf install mongodb-org -y &>> $LOGFILE
-    VALIDATE $? "mongodb install"
+    VALIDATE $? "MANGODB INSTALL"
     systemctl enable mongod
-    VALIDATE $? "enabled mongodb"
+    VALIDATE $? "ENABLED MONGODB"
     systemctl start mongod
-    VALIDATE $? "started mongodb"
+    VALIDATE $? "STARTED MONGODB"
     sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
+    VALIDATE $? "REMOTE ACCESS TO MONGODB"
     systemctl restart mongod
+    VALIDATE $? "RESTARTING MONGODB"
 
 
