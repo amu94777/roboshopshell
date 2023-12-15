@@ -49,7 +49,7 @@ else
 mkdir -p /app
 VALIDATE $? "APP DIRECTORY CREATION"
 
-curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
+curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>> $LOGFILE
 
 cd /app 
 
