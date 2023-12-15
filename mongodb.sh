@@ -22,3 +22,10 @@ then
 else
     echo -e "$G you are a root user $N"
 fi
+
+    echo -e "$Y ******MANGODB CONFIGURATION STARTS FROM HERE *****$N"
+
+    cp mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
+    VALIDATE $? "mongodb"
+    
+
