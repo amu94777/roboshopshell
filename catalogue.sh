@@ -42,7 +42,8 @@ then
     useradd roboshop
     VALIDATE $? "ADDED USER"
 else
-    echo "ROBOSHOPUSER IS ALREADY THERE"    
+    echo "ROBOSHOPUSER IS ALREADY THERE" 
+ fi      
 
 mkdir /app
 VALIDATE $? "APP DIRECTORY CREATION"
