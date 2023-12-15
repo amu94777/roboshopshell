@@ -52,7 +52,7 @@ curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zi
 
 cd /app 
 
-unzip /tmp/catalogue.zip 
+unzip -o /tmp/catalogue.zip 
 cd /app
 
 npm install &>> $LOGFILE
