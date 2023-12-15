@@ -45,7 +45,7 @@ else
     echo "ROBOSHOPUSER IS ALREADY THERE" 
  fi      
 
-mkdir /app
+mkdir -p /app
 VALIDATE $? "APP DIRECTORY CREATION"
 
 curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
