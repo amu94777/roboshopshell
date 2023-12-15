@@ -26,6 +26,9 @@ fi
     echo -e "$Y ******MANGODB CONFIGURATION STARTS FROM HERE *****$N"
 
     cp mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
-    VALIDATE $? "mongodb"
+    VALIDATE $? "cpopied mongodb repo"
+
+    dnf install mongodb-org -y 
+    VALIDATE $? "mongodb install"
     
 
