@@ -35,4 +35,7 @@ VALIDATE $? "ENABLED NODEJS:18"
 dnf install nodejs -y &>> $LOGFILE
 VALIDATE $? "INSTALLED NODEJS"
 
+useradd roboshop
+VALIDATE $? "ADDED USER"
+
 
