@@ -2,7 +2,7 @@
 ID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
-MONGODB-HOST=mongo.jaya123.shop
+MONGODB-HOST="mongo.jaya123.shop"
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
@@ -36,8 +36,13 @@ VALIDATE $? "ENABLED NODEJS:18"
 dnf install nodejs -y &>> $LOGFILE
 VALIDATE $? "INSTALLED NODEJS"
 
-useradd roboshop
-VALIDATE $? "ADDED USER"
+id roboshop
+if [ $? -ne 0 ]
+then 
+    useradd roboshop
+    VALIDATE $? "ADDED USER"
+else
+    echo "ROBOSHOPUSER IS ALREADY THERE"    
 
 mkdir /app
 VALIDATE $? "APP DIRECTORY CREATION"
