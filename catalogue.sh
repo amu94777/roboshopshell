@@ -2,7 +2,7 @@
 ID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
-MONGODB-HOST="mongo.jaya123.shop"
+MONGODB_HOST="mongo.jaya123.shop"
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
@@ -59,7 +59,7 @@ cd /app
 npm install &>> $LOGFILE
 VALIDATE $? "NPM INSTALLED"
 
-cp /home/centos/roboshopshell/catalog.service /etc/systemd/system/catalog.service
+cp /home/centos/roboshopshell/catalogue.service /etc/systemd/system/catalogue.service
 VALIDATE $? "COPIED CATALOG.SERVICE"
 
 systemctl daemon-reload
@@ -77,6 +77,6 @@ VALIDATE $? "COPIED MONGO REPO"
 dnf install mongodb-org-shell -y &>> $LOGFILE
 VALIDATE $? "INSATLLED MONGO CLIENT"
 
-mongo --host $MONGODB-HOST </app/schema/catalogue.js
+mongo --host $MONGODB_HOST </app/schema/catalogue.js
 VALIDATE $? "LOADING CATALOG DATA INTO MONGO DB"
 
