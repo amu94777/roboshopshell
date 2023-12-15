@@ -28,7 +28,7 @@ fi
     cp mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
     VALIDATE $? "cpopied mongodb repo"
 
-    dnf install mongodb-org -y 
+    dnf install mongodb-org -y &>> $LOGFILE
     VALIDATE $? "mongodb install"
-    
+
 
