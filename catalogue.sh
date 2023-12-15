@@ -71,12 +71,12 @@ VALIDATE $? "ENABLED CATALOG"
 systemctl start catalogue
 VALIDATE $? "STARTED CATALOG SERVICE"
 
-cp /home/centos/roboshopshell/mongo.repo /etc/yum.repos.d/mongo.repo
+cp /home/centos/roboshopshell/mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
 VALIDATE $? "COPIED MONGO REPO"
 
 dnf install mongodb-org-shell -y &>> $LOGFILE
 VALIDATE $? "INSATLLED MONGO CLIENT"
 
-mongo --host $MONGODB_HOST </app/schema/catalogue.js
+mongo --host $MONGODB_HOST </app/schema/catalogue.js &>> $LOGFILE
 VALIDATE $? "LOADING CATALOG DATA INTO MONGO DB"
 
