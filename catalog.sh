@@ -23,8 +23,13 @@ else
     echo -e "$G you are a root user $N"
 fi
 
-    echo "$G*******NOW I AM DOING CATALOGUE CONFOGURATION*********$N"
+    echo -e "$G*******NOW I AM DOING CATALOGUE CONFOGURATION*********$N"
 
 
 dnf module disable nodejs -y &>> $LOGFILE
 VALIDATE $? "DISABLE NODEJS"
+
+dnf module enable nodejs:18 -y
+VALIDATE $? "ENABLED NODEJS:18"
+
+
