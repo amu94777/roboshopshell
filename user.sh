@@ -57,4 +57,6 @@ cd /app
 npm install &>> $LOGFILE
 VALIDATE $? "NPM DEPENDENCIES IS INSTALLED"
 
+cp /home/centos/roboshopshell/user.service /etc/systemd/system/user.service
+
 
