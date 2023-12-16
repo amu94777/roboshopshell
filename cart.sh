@@ -51,7 +51,7 @@ VALIDATE $? "COPIED APPLICATION DATA"
 
 cd /app 
 
-unzip /tmp/cart.zip &>> $LOGFILE
+unzip -o /tmp/cart.zip &>> $LOGFILE
 VALIDATE $? "UNZIPFILE CONTENT"
 
 cd /app 
