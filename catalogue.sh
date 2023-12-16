@@ -49,17 +49,17 @@ else
 mkdir -p /app
 VALIDATE $? "APP DIRECTORY CREATION"
 
-curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip 
+curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>> $LOGFILE
 
 cd /app 
 
-unzip -o /tmp/catalogue.zip 
+unzip -o /tmp/catalogue.zip &>> $LOGFILE
 cd /app
 
 npm install &>> $LOGFILE
 VALIDATE $? "NPM INSTALLED"
 
-cp /home/centos/roboshopshell/catalogue.service /etc/systemd/system/catalogue.service
+cp /home/centos/roboshopshell/catalogue.service /etc/systemd/system/catalogue.service &>> $LOGFILE
 VALIDATE $? "COPIED CATALOG.SERVICE"
 
 systemctl daemon-reload

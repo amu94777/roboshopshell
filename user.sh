@@ -46,11 +46,11 @@ fi
 mkdir -p /app
 VALIDATE $? "APP DIRECTORY IS CREATED"
 
-curl -L -o /tmp/user.zip https://roboshop-builds.s3.amazonaws.com/user.zip &>> $LOGFILE
+curl -L -o /tmp/user.zip https://roboshop-builds.s3.amazonaws.com/user.zip 
 
 cd /app 
 
-unzip /tmp/user.zip &>> LOGFILE
+unzip /tmp/user.zip 
 
 cd /app 
 
