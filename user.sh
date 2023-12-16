@@ -34,3 +34,13 @@ VALIDATE $? "ENABLED NODEJS:18"
 dnf install nodejs -y &>> $LOGFILE
 VALIDATE $? "INSATELLED NODEJS"
 
+id roboshop
+if [ $? -ne 0 ]
+then
+    useradd roboshop
+    VALIDATE $? "USER ROBOSHOP ADDED"
+else
+    echo -e "$Y USER IS ALREADY CREATED:::::$N :::$R SKIPPING $N"
+fi   
+    
+
