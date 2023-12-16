@@ -50,4 +50,8 @@ VALIDATE $? "UNZIPFILE CONTENT"
 
 cd /app
 
-mvn clean package 
+mvn clean package &>> $LOGFILE
+VALIDATE $? "MAVEN CLEAN PACKAGE"
+
+mv target/shipping-1.0.jar shipping.jar &>> $LOGFILE
+VALIDATE $? "JAR FILE MOVED"
