@@ -54,7 +54,7 @@ unzip /tmp/user.zip &>> LOGFILE
 
 cd /app 
 
-npm install &>> $LOGFILE
+npm install 
 VALIDATE $? "NPM DEPENDENCIES IS INSTALLED"
 
 cp /home/centos/roboshopshell/user.service /etc/systemd/system/user.service
