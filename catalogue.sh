@@ -2,7 +2,6 @@
 ID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
-MONGODB_HOST="mongo.jaya123.shop"
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
@@ -77,6 +76,6 @@ VALIDATE $? "COPIED MONGO REPO"
 dnf install mongodb-org-shell -y &>> $LOGFILE
 VALIDATE $? "INSATLLED MONGO CLIENT"
 
-mongo --host $MONGODB_HOST </app/schema/catalogue.js &>> $LOGFILE
+mongo --host mongo.jaya123.shop </app/schema/catalogue.js &>> $LOGFILE
 VALIDATE $? "LOADING CATALOG DATA INTO MONGO DB"
 
