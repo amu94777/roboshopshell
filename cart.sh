@@ -46,7 +46,32 @@ fi
 mkdir -p /app
 VALIDATE $? "APP DIRECTORY CREATION IS"
 
-curl -L -o /tmp/cart.zip https://roboshop-builds.s3.amazonaws.com/cart.zip 
+curl -L -o /tmp/cart.zip https://roboshop-builds.s3.amazonaws.com/cart.zip &>> $LOGFILE
 VALIDATE $? "COPIED APPLICATION DATA"
+
+cd /app 
+
+unzip -O /tmp/cart.zip &>> $LOGFILE
+VALIDATE $? "UNZIPFILE CONTENT"
+
+cd /app 
+
+npm install &>> $LOGFILE
+VALIDATE $? "NPM INSTALLED"
+
+cp /home/centos/roboshopshell/cart.service /etc/systemd/system/cart.service &>> $LOGFILE
+VALIDATE $? "COPIED CART.SERVICE FILE"
+
+systemctl daemon-reload 
+VALIDATE $? "DEAMON RELOAD"
+
+systemctl enable cart 
+VALIDATE $? "ENABLED  CART"
+
+systemctl start cart
+VALIDATE $? "STARTED CART"
+
+
+
 
 
