@@ -46,7 +46,7 @@ fi
 mkdir -p /app
 VALIDATE $? "APP DIRECTORY IS CREATED"
 
-curl -L -o /tmp/user.zip https://roboshop-builds.s3.amazonaws.com/user.zip 
+curl -L -o /tmp/user.zip https://roboshop-builds.s3.amazonaws.com/user.zip &>> $LOGFILE
 
 cd /app 
 
@@ -54,10 +54,10 @@ unzip -o /tmp/user.zip
 
 cd /app 
 
-npm install 
+npm install &>> $LOGFILE
 VALIDATE $? "NPM DEPENDENCIES IS INSTALLED"
 
-cp /home/centos/roboshopshell/user.service /etc/systemd/system/user.service
+cp /home/centos/roboshopshell/user.service /etc/systemd/system/user.service &>> $LOGFILE
 VALIDATE $? "COPIED USER SERVICE"
 
 systemctl daemon-reload
@@ -69,13 +69,13 @@ VALIDATE $? "ENABLED USER"
 systemctl start user
 VALIDATE $? "STARTED USER"
 
-cp /home/centos/roboshopshell/mongo.repo /etc/yum.repos.d/mongo.repo
+cp /home/centos/roboshopshell/mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
 VALIDATE $? "copied mongo repo content"
 
-dnf install mongodb-org-shell -y
+dnf install mongodb-org-shell -y &>> $LOGFILE
 VALIDATE $? "INSTALLED MONGO CLIENT"
 
-mongo --host mongo.jaya123.shop </app/schema/user.js
+mongo --host mongo.jaya123.shop </app/schema/user.js &>> $LOGFILE
 VALIDATE $? "DATA LOADED"
 
 
