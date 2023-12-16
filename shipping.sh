@@ -59,4 +59,13 @@ VALIDATE $? "JAR FILE MOVED"
 cp /home/centos/roboshopshell/shipping.service /etc/systemd/system/shipping.service &>> $LOGFILE
 VALIDATE $? "COPIED SHIPPING SERVICE"
 
+systemctl daemon-reload
+VALIDATE $? "DEAMON RELOADED"
+
+systemctl enable shipping 
+VALIDATE $? "ENABLED SHIPPING"
+
+systemctl start shipping
+VALIDATE $? "STARTED SHIPPING"
+
 
