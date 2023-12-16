@@ -55,3 +55,8 @@ VALIDATE $? "MAVEN CLEAN PACKAGE"
 
 mv target/shipping-1.0.jar shipping.jar &>> $LOGFILE
 VALIDATE $? "JAR FILE MOVED"
+
+cp /home/centos/roboshopshell/shipping.service /etc/systemd/system/shipping.service &>> $LOGFILE
+VALIDATE $? "COPIED SHIPPING SERVICE"
+
+
