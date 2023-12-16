@@ -37,7 +37,7 @@ else
     echo "USER IS ALREADY THERE $R SKIPPING $N"
 fi
 
-mkdir /app 
+mkdir -p /app 
 VALIDATE $? "APP DIRECTORY CREATION"
 
 curl -L -o /tmp/payment.zip https://roboshop-builds.s3.amazonaws.com/payment.zip
@@ -45,7 +45,7 @@ VALIDATE $? "APPLICATION CADE DOWNLOADED"
 
 cd /app 
 
-unzip /tmp/payment.zip &>> $LOGFILE
+unzip -o /tmp/payment.zip &>> $LOGFILE
 VALIDATE $? "UNZIPPED FILE CONTENT"
 
 cd /app 
