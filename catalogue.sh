@@ -49,11 +49,11 @@ else
 mkdir -p /app
 VALIDATE $? "APP DIRECTORY CREATION"
 
-curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>> $LOGFILE
+curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip 
 
 cd /app 
 
-unzip -o /tmp/catalogue.zip &>> $LOGFILE
+unzip -o /tmp/catalogue.zip 
 cd /app
 
 npm install &>> $LOGFILE
