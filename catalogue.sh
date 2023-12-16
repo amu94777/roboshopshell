@@ -76,6 +76,6 @@ VALIDATE $? "COPIED MONGO REPO"
 dnf install mongodb-org-shell -y &>> $LOGFILE
 VALIDATE $? "INSATLLED MONGO CLIENT"
 
-mongo --host mongo.jaya123.shop </app/schema/catalogue.js 
+mongo --host mongo.jaya123.shop </app/schema/catalogue.js &>> $LOGFILE
 VALIDATE $? "LOADING CATALOG DATA INTO MONGO DB"
 
