@@ -58,5 +58,12 @@ npm install &>> $LOGFILE
 VALIDATE $? "NPM DEPENDENCIES IS INSTALLED"
 
 cp /home/centos/roboshopshell/user.service /etc/systemd/system/user.service
+VALIDATE $? "COPIED USER SERVICE"
+
+systemctl daemon-reload
+
+systemctl enable user 
+
+systemctl start user
 
 
