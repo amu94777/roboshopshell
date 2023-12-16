@@ -69,4 +69,13 @@ VALIDATE $? "ENABLED USER"
 systemctl start user
 VALIDATE $? "STARTED USER"
 
+cp /home/centos/roboshopshell/mongo.repo /etc/yum.repos.d/mongo.repo
+VALIDATE $? "copied mongo repo content"
+
+dnf install mongodb-org-shell -y
+VALIDATE $? "INSTALLED MONGO CLIENT"
+
+mongo --host mongo.jaya123.shop </app/schema/user.js
+VALIDATE $? "DATA LOADED"
+
 
