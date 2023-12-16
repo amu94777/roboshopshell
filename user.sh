@@ -48,5 +48,13 @@ VALIDATE $? "APP DIRECTORY IS CREATED"
 
 curl -L -o /tmp/user.zip https://roboshop-builds.s3.amazonaws.com/user.zip &>> $LOGFILE
 
+cd /app 
+
+unzip /tmp/user.zip &>> LOGFILE
+
+cd /app 
+
+npm install &>> $LOGFILE
+VALIDATE $? "NPM DEPENDENCIES IS INSTALLED"
 
 
