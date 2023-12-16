@@ -50,7 +50,7 @@ curl -L -o /tmp/user.zip https://roboshop-builds.s3.amazonaws.com/user.zip
 
 cd /app 
 
-unzip /tmp/user.zip 
+unzip -o /tmp/user.zip 
 
 cd /app 
 
