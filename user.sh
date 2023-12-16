@@ -43,6 +43,6 @@ else
     echo -e "$Y USER IS ALREADY CREATED:::::$N :::$R SKIPPING $N"
 fi   
 
-mkdir /app
+mkdir -p /app
 VALIDATE $? "APP DIRECTORY IS CREATED"
 
