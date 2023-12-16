@@ -37,7 +37,7 @@ else
     echo "ROBOSHOP USER IS ALREADY IS CREATED:::::$R SKIPPING $N"
 fi
 
-mkdir /app
+mkdir -p /app
 VALIDATE $? "APP DIRECTORY CREATION"
 
 curl -L -o /tmp/shipping.zip https://roboshop-builds.s3.amazonaws.com/shipping.zip &>> $LOGFILE
