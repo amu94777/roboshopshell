@@ -61,9 +61,12 @@ cp /home/centos/roboshopshell/user.service /etc/systemd/system/user.service
 VALIDATE $? "COPIED USER SERVICE"
 
 systemctl daemon-reload
+VALIDATE $? "DEAMON RELOAD"
 
 systemctl enable user 
+VALIDATE $? "ENABLED USER"
 
 systemctl start user
+VALIDATE $? "STARTED USER"
 
 
