@@ -45,7 +45,7 @@ VALIDATE $? "APPLICATION CODE COPIED"
 
 cd /app
 
-unzip /tmp/shipping.zip &>> $LOGFILE
+unzip -o /tmp/shipping.zip &>> $LOGFILE
 VALIDATE $? "UNZIPFILE CONTENT"
 
 cd /app
