@@ -31,6 +31,5 @@ VALIDATE $? "INSTALLED NGINX"
 systemctl enable nginx
 VALIDATE $? "ENABLED NGINX"
 
-systemctl start nginx
-VALIDATE $? "STARTED NGINX"
+
 
