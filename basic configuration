@@ -19,8 +19,3 @@ then
 else
     echo -e "$G you are a root user $N"
 fi
-
-echo -e "$G *****WEB CONGIURATION*****$N"
-
-dnf install nginx -y 
-
