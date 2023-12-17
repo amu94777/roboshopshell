@@ -31,4 +31,9 @@ VALIDATE $? "ENABLED NGINX"
 systemctl start nginx
 VALIDATE $? "STARTED NGINX"
 
+systemctl status nginx.service
+journalctl -xe
+
+systemctl restart nginx
+
 
