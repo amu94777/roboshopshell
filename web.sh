@@ -34,19 +34,3 @@ VALIDATE $? "ENABLED NGINX"
 systemctl start nginx
 VALIDATE $? "STARTED NGINX"
 
-rm -rf /usr/share/nginx/html/*
-VALIDATE $? "REMOVEING DEFAULT CONTENT"
-
-curl -o /tmp/web.zip https://roboshop-builds.s3.amazonaws.com/web.zip
-VALIDATE $? "CONTENT DOWNLOADED"
-
-cd /usr/share/nginx/html
-
-unzip /tmp/web.zip &>> $LOGFILE
-VALIDATE $? "UNZIPPING FILE CONTENT"
-
-cp /home/centos/roboshopshell/roboshop.conf /etc/nginx/default.d/roboshop.conf 
-VALIDATE $? "COPIED ROBOSHOP CONFIG"
-
-systemctl restart nginx 
-VALIDATE $? "RESTARED NGINX"
