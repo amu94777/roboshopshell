@@ -22,5 +22,13 @@ fi
 
 echo -e "$G *****WEB CONGIURATION*****$N"
 
-dnf install nginx -y 
+dnf install nginx -y  &>> $LOGFILE
+VALIDATE $? "INSTALLED NGINX"
+
+systemctl enable nginx 
+VALIDATE $? "ENABLED NGINX"
+
+systemctl start nginx
+VALIDATE $? "STARTED NGINX"
+
 
