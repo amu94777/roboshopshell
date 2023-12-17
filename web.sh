@@ -36,3 +36,5 @@ VALIDATE $? "STARTED NGINX"
 
 systemctl status nginx.service
 
+journalctl -xe
+
